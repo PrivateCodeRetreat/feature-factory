@@ -19,15 +19,21 @@ class TkinterGui:
         self.root = tk.Tk()
         self.root.title("Game of Life")
         self.cell_size = 10
-        self.frame_duration = 400
+        self.frame_duration = 250
         self.cells = {}
         self.create_widgets()
     
-    def show(self):
+    def show(self, num_of_iterations=-1):
+        self.iterations = 0
+        self.num_of_iterations = num_of_iterations
         self.root.after(self.frame_duration, self.advance_turn)
         self.root.mainloop()
     
     def advance_turn(self):
+        if self.iterations == self.num_of_iterations:
+            self.root.destroy()
+            return
+        self.iterations += 1
         self.game.advance()
         self.update_cells()
         self.root.after(self.frame_duration, self.advance_turn)
@@ -55,9 +61,15 @@ class TkinterGui:
 
 def test_tkinter_gui():
     game = GameOfLife()
+    create_square_at(game, 8, 8)
     create_glider_at(game, 0, 0)
     gui = TkinterGui(game)
-    gui.show()
+    gui.show(22)
+
+def create_blinker_at(game,x,y):
+    game.set_alive(x+0,y+1)
+    game.set_alive(x+1,y+1)
+    game.set_alive(x+2,y+1)
 
 def create_square_at(game,x,y):
     game.set_alive(x+0,y+0)
@@ -72,6 +84,12 @@ def create_glider_at(game,x,y):
     game.set_alive(x+2,y+1)
     game.set_alive(x+2,y+2)
 
+def create_applesauce_at(game,x,y):
+    create_square_at(game,x,y)
+    create_square_at(game,x+3,y)
+    create_square_at(game,x,y+3)
+    create_square_at(game,x+3,y+3)
+
 def verify_story_board(game,steps):
     storyboard = Storyboard()
     storyboard.add_frame(game)
@@ -83,7 +101,7 @@ def verify_story_board(game,steps):
 def test_game_of_life():
     game = GameOfLife()
     create_glider_at(game, 0, 0)
-    verify_story_board(game,4)
+    verify_story_board(game,5)
 
 def test_game_of_life_with_blinker():
     game = GameOfLife()
