@@ -59,6 +59,12 @@ def test_tkinter_gui():
     gui = TkinterGui(game)
     gui.show()
 
+def create_square_at(game,x,y):
+    game.set_alive(x+0,y+0)
+    game.set_alive(x+0,y+1)
+    game.set_alive(x+1,y+0)
+    game.set_alive(x+1,y+1)
+
 def create_glider_at(game,x,y):
     game.set_alive(x+0,y+1)
     game.set_alive(x+1,y+2)
@@ -91,10 +97,7 @@ def test_game_of_life_with_blinker():
 
 def test_square_age():
     game = GameOfLife()
-    game.set_alive(0, 0)
-    game.set_alive(0, 1)
-    game.set_alive(1, 0)
-    game.set_alive(1, 1)
+    create_square_at(game,0,0)
     assert game.get_age(3,3) == 0
     assert game.get_age(0,0) == 1
     game.advance()
