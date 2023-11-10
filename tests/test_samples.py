@@ -48,8 +48,10 @@ class TkinterGui:
             for y in range(self.height):
                 if self.game.is_alive(x, y):
                     self.cells[(x, y)].config(bg='blue')
+                    self.cells[(x, y)].config(text=self.game.get_age(x,y))
                 else:
                     self.cells[(x, y)].config(bg='grey')
+                    self.cells[(x, y)].config(text='')
 
 def test_tkinter_gui():
     game = GameOfLife()
