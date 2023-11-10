@@ -8,6 +8,48 @@ from approvaltests.storyboard import Storyboard
 
 from game_of_life import GameOfLife
 
+import tkinter as tk
+
+class TkinterGui:
+
+    def __init__(self, game_of_life,width=10,height=10):
+        self.width = width
+        self.height = height
+        self.game = game_of_life
+        self.root = tk.Tk()
+        self.root.title("Game of Life")
+        self.cell_size = 10
+        self.cells = {}
+        self.create_widgets()
+        
+        self.root.mainloop()
+
+    def create_widgets(self):
+        for x in range(self.width):
+            for y in range(self.height):
+                cell_frame = tk.Frame(self.root, width=self.cell_size, height=self.cell_size,
+                                      borderwidth=1, relief='raised')
+                cell_frame.grid(row=y, column=x)
+                cell = tk.Label(cell_frame, bg='white', width=2, height=1)
+                cell.pack(padx=1, pady=1)
+                self.cells[(x, y)] = cell
+        self.update_cells()
+    
+    def update_cells(self):
+        for x in range(self.width):
+            for y in range(self.height):
+                if self.game.is_alive(x, y):
+                    self.cells[(x, y)].config(bg='black')
+                else:
+                    self.cells[(x, y)].config(bg='white')
+
+def test_tkinter_gui():
+    game = GameOfLife()
+    create_glider_at(game, 0, 0)
+    gui = TkinterGui(game)
+    gui.root.update()  # Update the GUI frame to show latest cell configurations
+    gui.root.after(2000, lambda: gui.root.destroy())  # Keep the window open for 2 seconds and then close it
+    gui.root.mainloop()  # Start the GUI event loop
 
 def create_glider_at(game,x,y):
     game.set_alive(x+0,y+1)
