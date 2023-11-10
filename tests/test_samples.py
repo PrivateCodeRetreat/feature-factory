@@ -21,7 +21,8 @@ class TkinterGui:
         self.cell_size = 10
         self.cells = {}
         self.create_widgets()
-        
+    
+    def show(self):
         self.root.mainloop()
 
     def create_widgets(self):
@@ -39,17 +40,15 @@ class TkinterGui:
         for x in range(self.width):
             for y in range(self.height):
                 if self.game.is_alive(x, y):
-                    self.cells[(x, y)].config(bg='black')
+                    self.cells[(x, y)].config(bg='blue')
                 else:
-                    self.cells[(x, y)].config(bg='white')
+                    self.cells[(x, y)].config(bg='grey')
 
 def test_tkinter_gui():
     game = GameOfLife()
     create_glider_at(game, 0, 0)
     gui = TkinterGui(game)
-    gui.root.update()  # Update the GUI frame to show latest cell configurations
-    gui.root.after(2000, lambda: gui.root.destroy())  # Keep the window open for 2 seconds and then close it
-    gui.root.mainloop()  # Start the GUI event loop
+    gui.show()
 
 def create_glider_at(game,x,y):
     game.set_alive(x+0,y+1)
