@@ -14,7 +14,7 @@ class GameOfLife:
     def __str__(self) -> str:
         height = self.get_max_y() + 1
         width = self.get_max_x() + 1
-        return "\n".join(["".join(["*" if self.is_alive(x, y) else " " for x in range(width)]) for y in range(height)])
+        return "\n".join(["".join([f"{self.get_age(x,y)}" if self.is_alive(x, y) else " " for x in range(width)]) for y in range(height)])
     
     def get_max_x(self):
         return max([cell[0] for cell in self.alive_cells], default=0)
@@ -24,7 +24,7 @@ class GameOfLife:
 
     def set_alive(self, x, y):
         self.alive_cells.add((x, y))
-        self.cell_ages[(x, y)] = self.cell_ages.get((x, y), 0) + 1
+        self.cell_ages[(x, y)] = 1
 
     def is_alive(self, x, y):
         return (x, y) in self.alive_cells
@@ -64,6 +64,7 @@ def create_glider_at(game,x,y):
 
 def verify_story_board(game,steps):
     storyboard = Storyboard()
+    storyboard.add_frame(game)
     for i in range(steps):
         game.advance()
         storyboard.add_frame(game)
