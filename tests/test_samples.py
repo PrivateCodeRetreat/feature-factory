@@ -19,11 +19,18 @@ class TkinterGui:
         self.root = tk.Tk()
         self.root.title("Game of Life")
         self.cell_size = 10
+        self.frame_duration = 400
         self.cells = {}
         self.create_widgets()
     
     def show(self):
+        self.root.after(self.frame_duration, self.advance_turn)
         self.root.mainloop()
+    
+    def advance_turn(self):
+        self.game.advance()
+        self.update_cells()
+        self.root.after(self.frame_duration, self.advance_turn)
 
     def create_widgets(self):
         for x in range(self.width):
