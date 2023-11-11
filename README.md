@@ -1,60 +1,25 @@
+CodeRetreat 2023, Follow-up Week, Session 5
 
-[![Test](../../actions/workflows/test.yml/badge.svg)](../../actions/workflows/test.yml)
+**Pair:** [@isidore](https://github.com/isidore), [@nitsanani](http://github.com/nitsanavni)
 
-# ApprovalTests.Python.StarterProject
-Starter project for getting approvaltests up and running 
+## Constraint: Feature Factory
 
-<!-- toc -->
-## Contents
+Use all available AI tooling to get as many features done.
 
-  * [Who is this project for?](#who-is-this-project-for)
-  * [Getting Started](#getting-started)
-    * [Watch the video](#watch-the-video)
-  * [What is included?](#what-is-included)
-  * [Recommended Tooling?](#recommended-tooling)
-  * [ApprovalTests Basics](#approvaltests-basics)
-  * [Next steps](#next-steps)<!-- endToc -->
+## Results / Retro
 
-## Who is this project for?
-Anyone that wants to do some new code in Python with Approvaltests.   
-It works great for experimentation, katas or starting a green field project.
+Retro link here
 
-## Getting Started
+## After-Session Work
 
-If you are familar with python, you can either:
-* download the zip (under the `code` button
+Used [a GPT](https://chat.openai.com/g/g-n7Rs0IK86-grimoire) to generate the whole thing from a single prompt.
 
-or 
-* Fork the code by pressing `use this template`
+The prompt:
 
-### Watch the video
-If you are having any difficulties, We suggest you watch the [getting started video](https://www.youtube.com/watch?v=2PbA273JHYE)  
-**tip:** pause the video after each step and do it so you are in sync
+> game of life  
+> 10x10  
+> a glider collides with a square  
+> python, tkinter
 
-
-## What is included?
-* [Github actions](https://github.com/approvals/ApprovalTests.Python.StarterProject/actions/workflows/test.yml) - CI that runs your tests on Mac, Windows & Linux  
-   This is also what powers the green 'passing' badge at the top of this document
-* `requirements.txt` - standard place to include all your [pip dependiences from pypi](https://pypi.org/) 
-* `tox.ini' - A working [tox file](https://tox.wiki/en/latest/)
-* `tests` & `project` folders - to keep your production code and tests seperate
-* Sample tests that pass - to get you off to a great start
-* [MDSnippets intergration](https://github.com/simonCropp/MarkdownSnippets) to easily add code snippets to your markdown documentation
-
-## Recommended Tooling?
-
-* [Pycharm](https://www.jetbrains.com/pycharm/download/#section=mac) (both community and professional will work)
-* [Python 3](https://www.python.org/downloads/)
-* Diff Tools
-  * Windows - [WinMerge](https://winmerge.org/?lang=en)
-  * Mac - [DiffMerge](https://sourcegear.com/diffmerge/)   
-
-## ApprovalTests Basics
-
-
-## Next steps
-
-If you are just exploring you might want to try a sample exercise(kata). I would suggest you start with [LCD digits kata](https://codingdojo.org/kata/NumberToLCD/)
-
-
-
+[See chat here](https://chat.openai.com/share/4ceab0af-225f-4bd8-8415-7b3f31172515)  
+[See code here](./with-grimoire.py)
