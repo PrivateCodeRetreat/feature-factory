@@ -16,9 +16,9 @@ Used [a GPT](https://chat.openai.com/g/g-n7Rs0IK86-grimoire) to generate the who
 
 The prompt:
 
-> game of life
-> 10x10
-> a glider collides with a square
+> game of life  
+> 10x10  
+> a glider collides with a square  
 > python, tkinter
 
 [See chat here](https://chat.openai.com/share/4ceab0af-225f-4bd8-8415-7b3f31172515)  
