@@ -10,13 +10,13 @@ HERE = Path(__file__).parent
 VERSION = 1
 
 setup(
-    name="approvaltests.startup",
+    name="project",
     version=VERSION,
     description="Assertion/verification library to aid testing",
     author="ApprovalTests Contributors",
     author_email="",
     url="https://github.com/approvals/ApprovalTests.Python.starterproject",
-    python_requires=">=3.6.1",
+    python_requires=">=3.7.1",
     packages=find_packages(exclude=["tests*"]),
     package_data={"approvaltests": ["reporters/reporters.json"]},
     install_requires=["pyperclip==1.5.27", "pytest"],

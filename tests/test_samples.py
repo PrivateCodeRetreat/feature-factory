@@ -4,7 +4,7 @@ from approvaltests.approvals import verify
 
 from approvaltests.storyboard import Storyboard
 
-from game_of_life import GameOfLife
+from project.game_of_life import GameOfLife
 
 # If this fails, run:
 # brew install python-tk
@@ -14,7 +14,7 @@ def is_running_on_github_actions():
 def test_tkinter_gui():
     if is_running_on_github_actions():
         return
-    from TkinterGui import TkinterGui
+    from project.TkinterGui import TkinterGui
     game = GameOfLife()
     create_square_at(game, 8, 8)
     create_glider_at(game, 0, 0)
