@@ -10,7 +10,9 @@ from project.game_of_life import GameOfLife
 # brew install python-tk
 
 def is_running_on_github_actions():
-    return os.getenv('GITHUB_ACTIONS') == 'true'
+    github = os.getenv('GITHUB_ACTIONS')
+    print(f'github: {github}')
+    return github == 'true'
 def test_tkinter_gui():
     if is_running_on_github_actions():
         return
