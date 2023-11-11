@@ -10,6 +10,8 @@ from project.game_of_life import GameOfLife
 # brew install python-tk
 
 def is_running_on_github_actions():
+    for key, value in os.environ.items():
+        print(f'{key}: {value}')
     github = os.getenv('CI')
     print(f'github: {github}')
     return github == 'true'
