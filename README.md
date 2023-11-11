@@ -1,6 +1,6 @@
 CodeRetreat 2023, Follow-up Week, Session 5
 
-**Pair:** @isidore, @nitsanani
+**Pair:** [@isidore](https://github.com/isidore), [@nitsanani](http://github.com/nitsanavni)
 
 ## Constraint: Feature Factory
 
